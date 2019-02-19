@@ -6,5 +6,6 @@ export ELASTICSEARCH_PASSWORD=changeme
 export ELASTICSEARCH_HOST=swarm-manager
 export KIBANA_HOST=swarm-manager
 
-docker network create --driver overlay --attachable elastic
-docker stack deploy --compose-file docker-compose.yml elastic
+docker stack deploy --compose-file filebeat-docker-compose.yml filebeat
+docker stack deploy --compose-file metricbeat-docker-compose.yml metricbeat
+docker stack deploy --compose-file packetbeat-docker-compose.yml packetbeat
