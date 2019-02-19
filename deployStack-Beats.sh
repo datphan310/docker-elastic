@@ -5,7 +5,7 @@ export ELASTICSEARCH_USERNAME=elastic
 export ELASTICSEARCH_PASSWORD=changeme
 export ELASTICSEARCH_HOST=swarm-manager
 export KIBANA_HOST=swarm-manager
-export ELASTICSEARCH_URL=http://192.168.5.103:9200
+export ELASTICSEARCH_URL=http://elasticsearch:9200
 
 docker stack deploy --compose-file filebeat-docker-compose.yml filebeat
 docker stack deploy --compose-file metricbeat-docker-compose.yml metricbeat
