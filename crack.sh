@@ -1,5 +1,5 @@
 mkdir -p /usr/local/tempJar
-cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar tempJar/
+cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar /usr/local/tempJar/
 cd /usr/local/tempJar
 
 jar -xf x-pack-core-6.6.0.jar
