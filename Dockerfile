@@ -37,6 +37,8 @@ RUN jar -cvf x-pack-core-6.6.0.jar *
 RUN cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar.bak
 RUN cp x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/
 
+WORKDIR /usr/share/elasticsearch
+
 CMD ["elasticsearch"]
 
 EXPOSE 9200 9300
