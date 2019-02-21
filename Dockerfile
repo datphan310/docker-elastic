@@ -6,7 +6,7 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 RUN tar xzf jdk-8u201-linux-x64.tar.gz
 RUN cd jdk1.8.0_201
 RUN alternatives --install /usr/bin/java java /opt/jdk1.8.0_201/bin/java 2
-RUN alternatives --config java
+RUN echo 1 | alternatives --config java
 
 RUN alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_201/bin/jar 2
 RUN alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_201/bin/javac 2
