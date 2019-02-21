@@ -22,20 +22,19 @@ COPY XPackBuild.java ./
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar" LicenseVerifier.java
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar:/usr/share/elasticsearch/lib/elasticsearch-core-6.6.0.jar"  XPackBuild.java
 
-RUN mkdir -p /usr/local/tempJar
-RUN cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar tempJar/
-WORKDIR /usr/local/tempJar
-RUN ls
-RUN jar -xf x-pack-core-6.6.0.jar
-RUN mv org/elasticsearch/license/LicenseVerifier.class org/elasticsearch/license/LicenseVerifier.class.bak
-RUN cp ../LicenseVerifier.class org/elasticsearch/license/
-RUN mv org/elasticsearch/xpack/core/XPackBuild.class org/elasticsearch/xpack/core/XPackBuild.class.bak
-RUN cp ../XPackBuild.class org/elasticsearch/xpack/core/
-RUN rm x-pack-core-6.6.0.jar
-RUN jar -cvf x-pack-core-6.6.0.jar *
-
-RUN cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar.bak
-RUN cp x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/
+#RUN mkdir -p /usr/local/tempJar
+#RUN cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar tempJar/
+#WORKDIR /usr/local/tempJar
+#RUN ls
+#RUN jar -xf x-pack-core-6.6.0.jar
+#RUN y | mv org/elasticsearch/license/LicenseVerifier.class org/elasticsearch/license/LicenseVerifier.class.bak
+#RUN cp ../LicenseVerifier.class org/elasticsearch/license/
+#RUN y | mv org/elasticsearch/xpack/core/XPackBuild.class org/elasticsearch/xpack/core/XPackBuild.class.bak
+#RUN cp ../XPackBuild.class org/elasticsearch/xpack/core/
+#RUN rm x-pack-core-6.6.0.jar
+#RUN jar -cvf x-pack-core-6.6.0.jar *
+#RUN cp /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar.bak
+#RUN cp x-pack-core-6.6.0.jar /usr/share/elasticsearch/modules/x-pack-core/
 
 WORKDIR /usr/share/elasticsearch
 
