@@ -34,7 +34,9 @@ services:
       - BIND_PORTS=9200
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-6.5.0}
+    image: elasticsearch-local
+    build: .
+    #image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-6.5.0}
     # https://github.com/docker/swarmkit/issues/1951
     hostname: "{{.Node.Hostname}}-elasticsearch"
     environment:
