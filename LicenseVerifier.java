@@ -7,11 +7,13 @@ import org.elasticsearch.common.io.*;
 import java.io.*; 
  
 public class LicenseVerifier { 
-    public static boolean verifyLicense(final License license, final byte[] encryptedPublicKeyData) {
+	public LicenseVerifier() {}
+	
+    public static boolean verifyLicense(License license, byte[] encryptedPublicKeyData) {
         return true; 
     } 
     
-    public static boolean verifyLicense(final License license)     { 
+    public static boolean verifyLicense(License license)     { 
         return true; 
     } 
 }
