@@ -20,6 +20,7 @@ WORKDIR /usr/local
 COPY LicenseVerifier.java ./
 COPY XPackBuild.java ./
 COPY crack.sh ./
+RUN chmod 777 crack.sh
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar" LicenseVerifier.java
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar:/usr/share/elasticsearch/lib/elasticsearch-core-6.6.0.jar"  XPackBuild.java
 
