@@ -6,6 +6,7 @@ version: "3.7"
 services:
 
   swarm-listener:
+    container_name: elk-swarm-listener
     image: dockerflow/docker-flow-swarm-listener:latest
     hostname: swarm-listener
     networks:
@@ -20,6 +21,7 @@ services:
         constraints: [node.role == manager]
 
   proxy:
+    container_name: elk-proxy
     image: dockerflow/docker-flow-proxy:latest
     hostname: proxy
     ports:
@@ -35,6 +37,7 @@ services:
 
   elasticsearch:
     image: elasticsearch-local:latest
+    container_name: elk-elasticsearch
     build: .
     #image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-6.5.0}
     # https://github.com/docker/swarmkit/issues/1951
@@ -65,6 +68,7 @@ services:
         - com.df.srcPort=9200
 
   logstash:
+    container_name: elk-logstash
     image: docker.elastic.co/logstash/logstash:${ELASTIC_VERSION:-6.5.0}
     hostname: "{{.Node.Hostname}}-logstash"
     environment:
@@ -80,6 +84,7 @@ services:
         target: /usr/share/logstash/pipeline/logstash.conf
 
   kibana:
+    container_name: elk-kibana
     image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION:-6.5.0}
     hostname: "{{.Node.Hostname}}-kibana"
     environment:
