@@ -33,6 +33,9 @@ COPY XPackBuild.java ./
 COPY crack.sh ./
 RUN chmod +x crack.sh
 
+RUN mv /usr/share/elasticsearch/config/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml.bak
+COPY elk/elasticsearch.yml /usr/share/elasticsearch/config/
+
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar" LicenseVerifier.java
 RUN javac -cp "/usr/share/elasticsearch/lib/elasticsearch-6.6.0.jar:/usr/share/elasticsearch/lib/lucene-core-7.6.0.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-6.6.0.jar:/usr/share/elasticsearch/lib/elasticsearch-core-6.6.0.jar"  XPackBuild.java
 
